@@ -1,0 +1,312 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2e2e2e;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    align-items: flex-end;
+    flex: 0 1 auto;
+}
+
+header >  .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    color: rgb(78, 78, 78);
+}
+
+.name-nav{
+    text-decoration: none;
+    color: #fff;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+#projetos {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#projetos.show {
+    display: block;
+    opacity: 1;
+}
+
+
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 20px; /* Espaçamento entre os projetos */
+    margin-top: 20px; /* Espaçamento superior */
+    justify-content: center;
+}
+
+.projeto {
+    background-color: #ffffff94;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    height: 350px; /* Define uma altura fixa para todos os cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Espaça o conteúdo de forma uniforme */
+    padding: 20px;
+    position: relative;
+}
+
+.imagem-container {
+    flex-grow: 1;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.imagem-container img {
+    width: 150%;
+    height: 150%;
+    object-fit: cover; /* Faz a imagem preencher o quadro sem distorcer */
+    transition: transform 0.3s ease; /* Suave efeito de zoom na imagem */
+}
+
+
+
+.projeto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.texto-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente cobrindo todo o card */
+    opacity: 0;
+    color: white;
+    display: flex; /* Flexbox para centralizar o conteúdo */
+    flex-direction: column; /* Alinha itens verticalmente */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    pointer-events: none; /* Garante que o overlay não interfira com o hover do card */
+}
+
+.projeto:hover .texto-overlay {
+    opacity: 1; /* Exibe o texto centralizado ao passar o mouse */
+}
+
+.projeto h2 {
+    margin: 0; /* Remove qualquer margem padrão */
+    margin-bottom: 10px; /* Adiciona um espaço entre o nome e a descrição */
+    text-align: center;
+}
+
+.projeto p {
+    margin: 0; /* Remove qualquer margem padrão */
+    text-align: center;
+}
+
+
+footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: auto; /* Para empurrar o rodapé para o final */
+    position: relative; /* Altera de fixed para relative */
+}
+
+
+
+.social-icons a{
+    color: #fff;
+    margin: 0 15px;
+    font-size: 30px;
+}
+
+
+.social-icons a:hover{
+    color: rgb(124, 124, 124);
+}
+
+.navbar-bottom {
+    position: relative;
+    height: 60vh; /* Ocupa toda a altura da tela */
+    background-image: url('fundob.jpeg');
+    background-size: cover; /* Ajusta a imagem para cobrir todo o contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0; /* Remove qualquer margem inferior */
+}
+
+
+.navbar-bottom::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Sobreposição para melhorar legibilidade */
+    z-index: 1;
+}
+
+.navbar-bottom > * {
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column; /* Organiza a imagem e o nome em uma coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    text-align: center; /* Centraliza o texto */
+}
+
+
+.name-log{
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    transition: all 0.3s ease; /* Transição suave */
+    margin-top: 20px;
+}
+
+.imag-logo{
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid;
+    border-color: rgb(255, 255, 255);
+    object-fit: cover;
+    margin-top: 20px;
+    transition: all 0.3s ease; /* Transição suave */ 
+}
+
+.logo:hover .imag-logo {
+    opacity: 0.8; /* Efeito de escurecimento da imagem ao passar o mouse */
+    transform: translateY(-10px);
+}
+
+.logo:hover .name-log {
+    content: "Sobre Mim"; /* CSS não altera o conteúdo diretamente */
+}
+
+
+.sobre-mim-texto {
+    display: none; /* Inicialmente oculto */
+    margin-top: 20px;
+    padding: 20px;
+    background-color:none;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    width: 200%; /* Ajusta a largura da caixa de texto */
+    max-width: 600px; /* Define um tamanho máximo para a caixa */
+}
+
+
+.email{
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all;
+}
+
+.email a:hover{
+    color: rgb(85, 85, 85);
+}
+
+.projeto {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.projeto img {
+    max-width: 100%;
+    height: auto;
+}
+
+.contact{
+    text-align: center;
+
+}
+
+.navbar-bottom .logo img{
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+}
+
+@keyframes flutuar {
+    0%{
+        top: 0;
+    }
+    100%{
+        top: 20px;
+    }    
+}

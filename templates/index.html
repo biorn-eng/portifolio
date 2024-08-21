@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="container my-5">
+            <nav>
+                <ul>
+                    <a class="name-nav" href="/"><h3> Iamabiel Machado </h3></a>
+                </ul>
+            </nav>
+            
+            <nav>
+                <ul>                
+                    <li><a href="#sobre" id="link-sobre">Sobre Mim</a></li>                    
+                    <li><a href="#projetos" id="link-projetos">Projetos</a></li>
+                    <li><a href="#contato" id="link-contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="social-icons">                
+                <a href="https://www.linkedin.com/in/iamabiel-machado-8794532ba/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/5547996577598" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://github.com/seu-usuario" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+    </header>
+    <hr> <!-- Linha de separação -->
+    <div class="navbar-bottom">        
+            <nav>
+                <div class="logo">
+                    <a href="#">
+                        <img src="{{url_for('static', filename='foto.png')}}" class="imag-logo" alt="logo iamabiel">                        
+                    </a>
+                    <p id="name-log" class="name-log"> Iamabiel Machado </p>
+                </div>
+                <div id="sobre-mim-texto" class="sobre-mim-texto">Sou graduando em Engenharia Elétrica (8º semestre) na UNISUL, com paixão por tecnologia e inovação. Ao longo da minha formação adquiri conhecimentos em hardware e circuitos elétricos, e estou iniciando no desenvolvimento Full Stack, com foco em melhorar minhas habilidades em programação</div>
+            </nav>
+    </div>
+
+    
+<div class="container my-5">
+    
+    <section id="projetos" class="section" style="display: none;">
+    <h1>Portfólio de Projetos</h1>
+        <div class="projetos-grid">
+            {% for projeto in projetos %}
+                <a href="{{ projeto.link }}" target="_blank" class="projeto">
+                    <div class="imagem-container">
+                    {% if projeto.imagem %}
+                        <img src="{{ url_for('static', filename=projeto.imagem) }}" alt="{{ projeto.nome }}">
+                    {% endif %}
+                    </div>
+                    <div class="texto-overlay">
+                    <h2>{{ projeto.nome }}</h2>
+                    <p>{{ projeto.descricao }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    
+    <div class="contact">
+    <section id="contato" class="section" style="display: none;">
+        <div class="container">
+            <h2>Contato:</h2>
+            <p>Entre em contato comigo para discutir oportunidades de trabalho ou colaboração em projetos.</p>
+            <a class="email" href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=iamabielmachado@gmail.com" target="_blank">
+                iamabielmachado@gmail.com
+            </a>          
+           
+        </div>
+    </section>
+    </div>
+
+</div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Iamabiel Machado. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script>
+document.querySelector('.logo').addEventListener('mouseover', function() {
+    document.querySelector('.name-log').textContent = "Sobre Mim";
+});
+
+document.querySelector('.logo').addEventListener('mouseout', function() {
+    document.querySelector('.name-log').textContent = "Iamabiel Machado";
+});
+
+document.querySelector('.logo').addEventListener('click', function() {
+    var sobreMimTexto = document.getElementById('sobre-mim-texto');
+    sobreMimTexto.innerHTML = `
+        <p>Sou graduando em Engenharia Elétrica (8º semestre) na UNISUL, com paixão por tecnologia e inovação. Ao longo da minha formação adquiri conhecimentos em hardware e circuitos elétricos, e estou iniciando no desenvolvimento Full Stack, com foco em melhorar minhas habilidades em programação.</p>
+    `;
+    sobreMimTexto.style.display = 'block'; // Mostrar o texto ao clicar
+    
+});
+document.getElementById('link-sobre').addEventListener('click', function(event) {
+    event.preventDefault(); // Impede o comportamento padrão do link
+    document.getElementById('sobre-mim-texto').style.display = 'block'; // Exibe o texto "Sobre Mim"
+    window.scrollTo({
+        top: document.getElementById('sobre').offsetTop,
+        behavior: 'smooth' // Adiciona um efeito suave ao rolar
+    });
+});
+
+document.getElementById('link-projetos').addEventListener('click', function(event) {
+    event.preventDefault(); // Impede o comportamento padrão do link
+
+    // Exibe a seção de projetos
+    var projetosSection = document.getElementById('projetos');
+    projetosSection.style.display = 'block';
+
+    setTimeout(function() {
+        projetosSection.classList.add('show');
+    }, 10);
+
+    // Rola suavemente até a seção de projetos
+    window.scrollTo({
+        top: projetosSection.offsetTop,
+        behavior: 'smooth'
+    });
+});
+
+document.getElementById('link-contato').addEventListener('click', function(event) {
+    event.preventDefault(); // Impede o comportamento padrão do link
+
+    // Exibe a seção de projetos
+    var projetosSection = document.getElementById('contato');
+    projetosSection.style.display = 'block';
+
+    // Rola suavemente até a seção de projetos
+    window.scrollTo({
+        top: projetosSection.offsetTop,
+        behavior: 'smooth'
+    });
+});
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Admin - Gerenciar Projetos</title>
+</head>
+<body>
+    <h1>Administração de Projetos</h1>
+
+    <!-- Formulário para Adicionar Projeto -->
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('admin') }}">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="descricao">Descrição:</label><br>
+        <textarea id="descricao" name="descricao" required></textarea><br><br>
+
+        <label for="link">Link:</label><br>
+        <input type="text" id="link" name="link" required><br><br>
+
+        <label for="imagem">Imagem:</label><br>
+        <input type="file" id="imagem" name="imagem"><br><br>
+
+        <button type="submit">Adicionar Projeto</button>
+    </form>
+
+    <form>
+    <div class="container-my5">
+        <h2>Projetos Existentes</h2>
+        <ul>
+            {% for projeto in projetos %}
+                <li>
+                    <a href="{{ projeto.link }}" target="_blank">
+                        <strong>{{ projeto.nome }}</strong><br>
+                        {% if projeto.imagem %}
+                            <img src="{{ url_for('static', filename=projeto.imagem) }}" alt="{{ projeto.nome }}" style="max-width: 200px;"><br>
+                        {% endif %}
+                        <p>{{ projeto.descricao }}</p>
+                    </a>
+
+                    <!-- Formulário para Exclusão de Projeto -->
+                    <form method="POST" action="{{ url_for('admin') }}" style="display:inline;">
+                        <input type="hidden" name="delete_project" value="{{ loop.index0 }}">
+                        <button type="submit">Excluir Projeto</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    </form>
+
+    <!-- Botão de Logout -->
+    <form method="POST" action="{{ url_for('logout') }}" style="margin-top: 20px;">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

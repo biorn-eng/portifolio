@@ -1,0 +1,14 @@
+[
+    {
+        "id": "1",
+        "username": "iamabielmachado@gmail.com",
+        "password_hash": "scrypt:32768:8:1$fPEvyjTuf09HaZND$684385ec6be0d91ab2e60e22d78776703e1362442daea52c04dd5dce1f31f1ea3bc6279dea3420b050728cfa036e20b5788dab5fdd07c29f485c95ad8a735efc",
+        "is_admin": true
+    },
+    {
+        "id": "2",
+        "username": "ze",
+        "password_hash": "scrypt:32768:8:1$mZacpk749mnuASZa$ab8c924c5acd1f2cb8d52dd73a7c446da41cc8183c6f6d36ef840edbd79201e6e796bf2cc2ef736c7e900132d06370d961481c3f11ab89fea341bc19cff4c30d",
+        "is_admin": false
+    }
+]
