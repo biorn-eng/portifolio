@@ -81,10 +81,10 @@ nav ul li a:hover{
 
 .projetos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 20px; /* Espaçamento entre os projetos */
     margin-top: 20px; /* Espaçamento superior */
     justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Altere de 500px para 280px */
 }
 
 .projeto {
@@ -100,6 +100,7 @@ nav ul li a:hover{
     justify-content: center; /* Espaça o conteúdo de forma uniforme */
     padding: 20px;
     position: relative;
+    max-width: 100%; /* Garante que o projeto não ultrapasse o tamanho da tela */
 }
 
 .imagem-container {
