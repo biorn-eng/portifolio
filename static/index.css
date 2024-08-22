@@ -262,10 +262,19 @@ footer {
     padding: 20px;
     background-color:none;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
-    width: 200%; /* Ajusta a largura da caixa de texto */
-    max-width: 600px; /* Define um tamanho máximo para a caixa */
+    width: 100%; /* Largura padrão */
+    max-width: 600px; /* Tamanho máximo para telas menores */
+}
+
+/* Ajustes para telas maiores */
+@media (min-width: 1024px) {
+    .sobre-mim-texto {
+        max-width: 800px; /* Aumenta a largura máxima para telas maiores */
+        font-size: 16px; /* Aumenta o tamanho da fonte em telas maiores */
+        padding: 30px; /* Aumenta o padding para criar mais espaço */
+    }
 }
 
 
