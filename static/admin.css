@@ -53,3 +53,70 @@ button[type="submit"]:hover {
 }
 
 
+/* Centralizar o conteúdo da seção */
+.container-my5 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Centralizar e remover margens/padding das listas */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo básico para os itens da lista */
+ul li {
+    display: inline-block;
+    text-align: left;
+    margin: 10px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    vertical-align: top;
+}
+
+/* Estilizar o título */
+h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+/* Estilizar o nome do projeto */
+ul li a strong {
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Estilizar a descrição */
+ul li p {
+    margin-top: 10px;
+    color: #666;
+}
+
+/* Imagem no card */
+ul li img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Botão de edição */
+ul li a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #b5d9ff;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+ul li a:hover {
+    background-color: #556e88;
+}

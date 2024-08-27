@@ -27,7 +27,6 @@
         <button type="submit">Adicionar Projeto</button>
     </form>
 
-    <form>
     <div class="container-my5">
         <h2>Projetos Existentes</h2>
         <ul>
@@ -41,6 +40,9 @@
                         <p>{{ projeto.descricao }}</p>
                     </a>
 
+                    <!-- Link para Edição de Projeto -->
+                    <a href="{{ url_for('edit_project', project_id=loop.index0) }}">Editar Projeto</a>
+
                     <!-- Formulário para Exclusão de Projeto -->
                     <form method="POST" action="{{ url_for('admin') }}" style="display:inline;">
                         <input type="hidden" name="delete_project" value="{{ loop.index0 }}">
@@ -49,8 +51,13 @@
                 </li>
             {% endfor %}
         </ul>
+
+        <!-- Botão para Excluir Todos os Projetos -->
+        <form method="POST" action="{{ url_for('admin') }}" style="margin-top: 20px;">
+            <input type="hidden" name="delete_all" value="true">
+            <button type="submit">Excluir Todos os Projetos</button>
+        </form>
     </div>
-    </form>
 
     <!-- Botão de Logout -->
     <form method="POST" action="{{ url_for('logout') }}" style="margin-top: 20px;">

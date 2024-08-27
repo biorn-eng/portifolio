@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <title>Editar Projeto</title>
+</head>
+<body>
+    <h1>Editar Projeto</h1>
+
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('edit_project', project_id=project_id) }}">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" value="{{ projeto.nome }}" required><br><br>
+
+        <label for="descricao">Descrição:</label><br>
+        <textarea id="descricao" name="descricao" required>{{ projeto.descricao }}</textarea><br><br>
+
+        <label for="link">Link:</label><br>
+        <input type="text" id="link" name="link" value="{{ projeto.link }}" required><br><br>
+
+        <label for="imagem">Imagem Atual:</label><br>
+        {% if projeto.imagem %}
+            <img src="{{ url_for('static', filename=projeto.imagem) }}" alt="{{ projeto.nome }}" style="max-width: 200px;"><br><br>
+        {% endif %}
+
+        <label for="imagem">Nova Imagem:</label><br>
+        <input type="file" id="imagem" name="imagem"><br><br>
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+
+    <a href="{{ url_for('admin') }}">Cancelar</a>
+</body>
+</html>

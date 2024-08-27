@@ -1,14 +1,14 @@
 [
     {
-        "nome": "testeeee",
-        "descricao": "testando",
-        "imagem": "uploads/Conselho Pontif\u00edcio da Cultura debate \u201cfuturo da humanidade\u201d _ Secretariado Nacional da Pastoral da Cultura.jpeg",
-        "link": "https://www.linkedin.com/in/iamabiel-machado-8794532ba/"
+        "nome": "Projeto Loja online",
+        "descricao": "Projeto em andamento de loja online, com backend em Python e Flask. Frontend em Html e css. API\u00b4s de pagamento e de CEP.",
+        "imagem": "uploads/loja.png",
+        "link": "https://drive.google.com/file/d/1ynK3qydEiMppT1grJKBXOocCaMb66hQn/view?usp=sharing"
     },
     {
-        "nome": "testeeee",
-        "descricao": "asfasdfas",
-        "imagem": "uploads/00b97c70380bcc15bc68760fcf8f5191.jpg",
+        "nome": "Projeto Portif\u00f3lio",
+        "descricao": "Projeto de portif\u00f3lio com backend em Python e Flask. Frontend em Html e css.",
+        "imagem": "uploads/portfolio.png",
         "link": "https://www.linkedin.com/in/iamabiel-machado-8794532ba/"
     }
 ]

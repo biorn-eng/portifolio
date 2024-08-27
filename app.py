@@ -116,6 +116,11 @@ def admin():
     projetos = carregar_projetos()
 
     if request.method == 'POST':
+        if 'delete_all' in request.form:
+            projetos.clear()  # Remove todos os projetos
+            salvar_projetos(projetos)
+            return redirect(url_for('admin'))
+
         if 'delete_project' in request.form:
             projeto_id = int(request.form['delete_project'])
             projetos.pop(projeto_id)
@@ -146,6 +151,43 @@ def admin():
 
     return render_template('admin.html', projetos=projetos)
 
+
+
+@app.route('/edit_project/<int:project_id>', methods=['GET', 'POST'])
+@login_required
+def edit_project(project_id):
+    if not current_user.is_admin:
+        return 'Acesso negado', 403
+
+    projetos = carregar_projetos()
+
+    # Verifica se o projeto com o ID fornecido existe
+    if 0 <= project_id < len(projetos):
+        projeto = projetos[project_id]
+
+        if request.method == 'POST':
+            # Atualiza os campos do projeto com os valores do formulário
+            projeto['nome'] = request.form.get('nome')
+            projeto['descricao'] = request.form.get('descricao')
+            projeto['link'] = request.form.get('link')
+
+            if 'imagem' in request.files:
+                file = request.files['imagem']
+                if file and allowed_file(file.filename):
+                    filename = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+                    file.save(filename)
+                    projeto['imagem'] = os.path.join('uploads', file.filename)
+
+            # Salva as mudanças
+            salvar_projetos(projetos)
+            return redirect(url_for('admin'))
+
+        return render_template('edit_project.html', projeto=projeto, project_id=project_id)
+    else:
+        return 'Projeto não encontrado', 404
+
+
+
 # Página principal
 @app.route('/')
 def index():
@@ -161,4 +203,6 @@ def logout():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)
+
+

@@ -85,6 +85,7 @@ nav ul li a:hover{
     margin-top: 20px; /* Espaçamento superior */
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Altere de 500px para 280px */
+    text-align: center;
 }
 
 .projeto {
