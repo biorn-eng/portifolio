@@ -10,5 +10,17 @@
         "descricao": "Projeto de portif\u00f3lio com backend em Python e Flask. Frontend em Html e css.",
         "imagem": "uploads/portfolio.png",
         "link": "https://www.linkedin.com/in/iamabiel-machado-8794532ba/"
+    },
+    {
+        "nome": "Monitor de bitcoin",
+        "descricao": "Monitor de pre\u00e7o de bitcoin, feito com Python, usando API. O monitor ocupa um espa\u00e7o pequeno na tela do desktop e n\u00e3o usa a barra de ferramentas.",
+        "imagem": "uploads/Captura de tela 2024-08-29 111545.png",
+        "link": "https://drive.google.com/file/d/1DSbJ8Tc22D4_Hp4jR2lIGJGA8knQ_1co/view?usp=sharing"
+    },
+    {
+        "nome": "Game",
+        "descricao": "Game feito em Python, com um execut\u00e1vel dispon\u00edvel para windows",
+        "imagem": "uploads/Captura de tela 2024-08-29 130100.png",
+        "link": "https://drive.google.com/file/d/1GT6KhijkSVSKCWElNTkGCh1PCnAm04jE/view?usp=sharing"
     }
 ]
